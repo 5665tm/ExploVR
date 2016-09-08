@@ -4,6 +4,7 @@ public class MarkTarget : MonoBehaviour
 {
 	[SerializeField] private float _upSpeedMeterPerSecond;
 	[SerializeField] private float _destroyTimeSecond;
+	[SerializeField] private GameObject _explosion;
 
 	private void Start()
 	{
@@ -19,6 +20,7 @@ public class MarkTarget : MonoBehaviour
 	{
 		if (other.name == "Laser")
 		{
+			Instantiate(_explosion, transform.position, transform.rotation);
 			Destroy(gameObject);
 		}
 	}
