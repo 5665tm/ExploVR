@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class RotatePoint : MonoBehaviour {
+public class RotatePoint : MonoBehaviour
+{
+	/// <summary>
+	/// Скорость вращения объекта
+	/// </summary>
+	[SerializeField]
+	private float _rotateAnglePerSecond;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	private void Update()
+	{
+		transform.Rotate(Vector3.up * _rotateAnglePerSecond * Time.deltaTime);
 	}
 }
