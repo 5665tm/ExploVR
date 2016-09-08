@@ -14,4 +14,12 @@ public class MarkTarget : MonoBehaviour
 	{
 		transform.Translate(Vector3.up * _upSpeedMeterPerSecond * Time.deltaTime);
 	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.name == "Laser")
+		{
+			Destroy(gameObject);
+		}
+	}
 }
