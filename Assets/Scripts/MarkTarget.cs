@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Camera;
+using UnityEngine;
 
 public class MarkTarget : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class MarkTarget : MonoBehaviour
 		{
 			Instantiate(_explosion, transform.position, transform.rotation);
 			Destroy(gameObject);
+			CameraShake.Shake();
 		}
 	}
 }
