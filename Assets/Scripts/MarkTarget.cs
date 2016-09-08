@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class MarkTarget : MonoBehaviour {
+public class MarkTarget : MonoBehaviour
+{
+	[SerializeField] private float _upSpeedMeterPerSecond;
+	[SerializeField] private float _destroyTimeSecond;
 
-	// Use this for initialization
-	void Start () {
-	
+	private void Start()
+	{
+		Destroy(gameObject, _destroyTimeSecond);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	private void Update()
+	{
+		transform.Translate(Vector3.up * _upSpeedMeterPerSecond * Time.deltaTime);
 	}
 }

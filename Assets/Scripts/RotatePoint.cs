@@ -2,11 +2,7 @@
 
 public class RotatePoint : MonoBehaviour
 {
-	/// <summary>
-	/// Скорость вращения объекта
-	/// </summary>
-	[SerializeField]
-	private float _rotateAnglePerSecond;
+	[SerializeField] private float _rotateAnglePerSecond;
 
 	private void Update()
 	{

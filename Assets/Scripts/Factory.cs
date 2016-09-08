@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class Factory : MonoBehaviour {
+public class Factory : MonoBehaviour
+{
+	[SerializeField] private float _timeBetweenCreate;
+	[SerializeField] private GameObject _createdObject;
+	private float _accumTime;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	private void Update()
+	{
+		_accumTime -= Time.deltaTime;
+		if (_accumTime <= 0)
+		{
+			_accumTime = _timeBetweenCreate;
+			Instantiate(_createdObject, transform.position, transform.rotation);
+		}
 	}
 }
