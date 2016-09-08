@@ -5,6 +5,8 @@ public class Player : MonoBehaviour
 	[SerializeField] private float _rotateFromKeyboard;
 	[SerializeField] private float _tiltFromKeyboard;
 	[SerializeField] private Transform _head;
+	[SerializeField] private GameObject _laser;
+	private bool _laserActive = false;
 
 	private void Update()
 	{
@@ -28,11 +30,19 @@ public class Player : MonoBehaviour
 
 		if (Input.GetKey(KeyCode.Space))
 		{
-			Fire();
+			if (!_laserActive)
+			{
+				_laserActive = true;
+				_laser.SetActive(true);
+			}
 		}
-	}
-
-	private void Fire()
-	{
+		else
+		{
+			if (_laserActive)
+			{
+				_laserActive = false;
+				_laser.SetActive(false);
+			}
+		}
 	}
 }
