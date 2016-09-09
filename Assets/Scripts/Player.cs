@@ -8,6 +8,10 @@ public class Player : MonoBehaviour
 	[SerializeField] private GameObject _laser;
 	private bool _laserActive = false;
 
+
+
+
+
 	private void Update()
 	{
 		if (Input.GetKey(KeyCode.LeftArrow))
@@ -28,7 +32,7 @@ public class Player : MonoBehaviour
 			_head.Rotate(Vector3.left * ( -_tiltFromKeyboard) * Time.deltaTime);
 		}
 
-		if (Input.GetKey(KeyCode.Space))
+		if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
 		{
 			if (!_laserActive)
 			{
@@ -44,5 +48,6 @@ public class Player : MonoBehaviour
 				_laser.SetActive(false);
 			}
 		}
-	}
+	}		
+
 }
